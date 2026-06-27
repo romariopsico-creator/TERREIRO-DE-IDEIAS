@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Terreiro de Ideias | AVA</title>
+  <link rel="stylesheet" href="style.css?v=8.1">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="mark">✦</div>
+        <div><strong>TERREIRO<br>DE IDEIAS</strong><span>Ambiente Virtual de Aprendizagem</span></div>
+      </div>
+      <nav>
+        <a href="#inicio">🏠 Início</a>
+        <a href="#apresentacao">📖 Apresentação</a>
+        <a href="#modulos">📚 Módulos</a>
+        <button onclick="openTest('pre')">📝 Pré-teste</button>
+        <button onclick="openTest('post')">✅ Pós-teste</button>
+        <a href="#encontros">👥 Encontros</a>
+        <a href="#biblioteca">📁 Biblioteca</a>
+        <button onclick="openCronograma()">📅 Cronograma</button>
+        <a href="#progresso">📈 Progresso</a>
+        <button onclick="openEvaluation()">⭐ Avaliação</button>
+        <a href="#certificado">🏅 Certificado</a>
+        <a href="#autor">👤 Autor</a>
+        <a href="#inscricao">☑️ Inscrições</a>
+        <a href="#contato">✉️ Contato</a>
+        <button onclick="openTeacher()">🔐 Painel Professor</button>
+      </nav>
+      <blockquote>“Construindo pontes entre ciência, saberes tradicionais e cuidado integral.”</blockquote>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="hamb" onclick="toggleMenu()">☰</button>
+        <span>Bem-vindo(a), <b id="topName">Participante</b></span>
+        <div class="top-actions"><button onclick="openTeacher()">Professor</button><button class="avatar" onclick="openProfile()" id="avatar">P</button></div>
+      </header>
+
+      <section id="inicio" class="hero heroImageOnly" aria-label="Imagem de capa do curso Pontes de Cuidado no SUS"></section>
+
+      <section class="quickCards">
+        <article onclick="scrollToId('modulos')"><span>📚</span><b>Módulos</b><p>Acesse a trilha formativa.</p></article>
+        <article onclick="openTest('pre')"><span>📝</span><b>Pré-teste</b><p>Percepções iniciais.</p></article>
+        <article onclick="openTest('post')"><span>✅</span><b>Pós-teste</b><p>Aprendizagem final.</p></article>
+        <article onclick="scrollToId('encontros')"><span>👥</span><b>Encontros</b><p>Valide a presença.</p></article>
+        <article onclick="scrollToId('biblioteca')"><span>📁</span><b>Biblioteca</b><p>Materiais e referências.</p></article>
+        <article onclick="openEvaluation()"><span>⭐</span><b>Avaliação</b><p>Valide o curso.</p></article>
+      </section>
+
+      <section id="progresso" class="dashboard">
+        <div class="panel progress-panel">
+          <h2>Meu Progresso</h2>
+          <div class="progressWrap"><div class="donut" id="donut">0%</div><div class="bars" id="bars"></div></div>
+        </div>
+        <div class="panel validation-panel">
+          <h2>Validação do Produto</h2>
+          <p>As etapas concluídas geram evidências locais e podem ser enviadas ao Google Sheets quando configurado.</p>
+          <div class="miniStats" id="miniStats"></div>
+        </div>
+      </section>
+
+      <section id="apresentacao" class="section">
+        <p class="kicker">Apresentação</p><h2>Sobre o curso</h2>
+        <p>Curso formativo para profissionais do SUS, organizado como produto técnico-educacional, voltado à construção de uma escuta respeitosa, integral e sensível às dimensões religiosas, espirituais e culturais do cuidado.</p>
+        <div class="stats"><b>22h<span>Carga horária</span></b><b>8<span>Módulos</span></b><b>Híbrido<span>Assíncrono + encontros</span></b><b>Arco de Maguerez<span>Problematização</span></b></div>
+      </section>
+
+      <section id="modulos" class="section">
+        <p class="kicker">Percurso formativo</p><h2>Módulos do curso</h2>
+        <p class="muted">Clique em cada módulo para abrir descrição, materiais, atividade, quiz e conclusão.</p>
+        <div class="accordion" id="moduleAccordion"></div>
+      </section>
+
+      <section id="encontros" class="section">
+        <p class="kicker">Validação síncrona</p><h2>Encontros Online</h2>
+        <p>Após cada encontro, o facilitador informa a palavra-chave de presença.</p>
+        <div class="meetings" id="meetings"></div>
+      </section>
+
+      <section id="biblioteca" class="section">
+        <p class="kicker">Materiais</p><h2>Biblioteca</h2>
+        <div class="library">
+          <a href="referencias.pdf">📑 Referências</a>
+          <a href="pre-teste.pdf">📝 Pré-teste PDF</a>
+          <a href="pos-teste.pdf">✅ Pós-teste PDF</a>
+          <a href="dissertacao.pdf">🎓 Dissertação futura</a>
+        </div>
+      </section>
+
+      <section id="avaliacao" class="section">
+        <p class="kicker">Avaliação</p><h2>Avaliação do Curso</h2>
+        <p>Espaço para o participante avaliar conteúdo, plataforma, organização, encontros e registrar sugestões.</p>
+        <button onclick="openEvaluation()">Avaliar curso</button><p id="evalStatus">Avaliação pendente</p>
+      </section>
+
+      <section id="certificado" class="section">
+        <p class="kicker">Conclusão</p><h2>Certificado</h2>
+        <p>O certificado só é liberado após conclusão dos 8 módulos, aprovação nos quizzes, validação dos encontros, pré-teste, pós-teste, avaliação do curso e código final.</p>
+        <input id="finalCode" placeholder="Código final do facilitador"><button onclick="generateCertificate()">Baixar certificado PNG</button><div id="certResult"></div>
+      </section>
+
+      <section id="autor" class="section author">
+        <img src="autor-romario.jpeg" alt="Romario da Silva Ferreira">
+        <div><p class="kicker">Sobre o autor</p><h2>Romario da Silva Ferreira</h2>
+          <p>Psicólogo e mestrando em Ensino em Ciências da Saúde pela Universidade Federal de São Paulo (UNIFESP). Sua trajetória profissional e acadêmica é dedicada à construção de um cuidado mais integral, humanizado e culturalmente sensível.</p>
+          <p>Desde 2006, desenvolve estudos e vivências relacionados ao Candomblé, investigando práticas religiosas de cuidado e suas contribuições para a saúde mental e para o Sistema Único de Saúde.</p>
+          <p>Atualmente atua como gestor de serviços em saúde, além de lecionar em cursos da área da saúde e exercer a prática clínica em Psicologia.</p>
+          <div class="links"><a href="http://lattes.cnpq.br/2830228409708519" target="_blank">Currículo Lattes</a><a href="https://orcid.org/0000-0003-1654-9084" target="_blank">ORCID</a><a href="dissertacao.pdf">Dissertação</a></div>
+        </div>
+      </section>
+
+      <section id="inscricao" class="section">
+        <p class="kicker">Participação</p><h2>Inscrições</h2>
+        <form id="signup" class="form"><input name="nome" placeholder="Nome completo" required><input name="cpf" placeholder="CPF"><input name="email" placeholder="E-mail" type="email"><input name="telefone" placeholder="Telefone"><input name="cidade" placeholder="Cidade"><input name="profissao" placeholder="Profissão"><input name="instituicao" placeholder="Instituição"><button>Enviar inscrição</button></form><p id="signupMsg"></p>
+      </section>
+
+      <section id="contato" class="section"><p class="kicker">Contato</p><h2>Fale com o Terreiro de Ideias</h2><p><a class="emailLink" href="mailto:terreirodeideias7@gmail.com">terreirodeideias7@gmail.com</a></p></section>
+      <footer>© 2026 – Terreiro de Ideias • Pontes de Cuidado no SUS</footer>
+    </main>
+  </div>
+
+  <div class="modal" id="modal"><div class="modalBox"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
+  <canvas id="certificateCanvas" width="1600" height="1100" hidden></canvas>
+  <script src="config.js?v=8.1"></script><script src="data.js?v=8.1"></script><script src="app.js?v=8.1"></script>
+</body>
+</html>

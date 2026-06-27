@@ -1,0 +1,24 @@
+TERREIRO DE IDEIAS 8.0 - GOOGLE SHEETS
+
+O que fica registrado na planilha:
+- inscrição
+- pré-teste
+- pós-teste
+- quiz por módulo
+- presença nos encontros
+- avaliação do curso
+- certificado emitido
+
+PASSO A PASSO:
+1. Acesse https://drive.google.com e crie uma Planilha Google.
+2. Na planilha, vá em Extensões > Apps Script.
+3. Apague o conteúdo inicial e cole o conteúdo do arquivo google-apps-script-inscricoes.js.
+4. Clique em Salvar.
+5. Clique em Implantar > Nova implantação.
+6. Tipo: App da Web.
+7. Executar como: você.
+8. Quem tem acesso: qualquer pessoa.
+9. Copie a URL gerada.
+10. Abra o arquivo config.js e cole a URL em googleAppsScriptURL.
+
+Pronto. A plataforma passará a enviar os registros para sua planilha.
